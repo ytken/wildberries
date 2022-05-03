@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Components example</string>
+    <string name="button_service">Пример Service</string>
+    <string name="button_broadcast">Пример BroadcastReceiver</string>
+    <string name="button_content">Пример ContentProvider</string>
+    <string name="message_no_internet">Ой! Подключение к интернету потеряно</string>
+    <string name="button_reconnect">Переподключение</string>
+    <string name="message_use_volume_buttons">Используй кнопки громкости</string>
+    <string name="message_story_hh">Представляешь, в superhh.ru сразу берут в перспективный проект \n Надо скорее разместить там своё резюме!</string>
+    <string name="superhh_ru">superhh.ru</string>
+    <string name="hh_ru">hh.ru</string>
+    <string name="db_name">ResumeDataBase</string>
+    <string name="heading_my_resumes">Мои резюме</string>
+</resources>

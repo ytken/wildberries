@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:gravity="center"
+    android:layout_margin="16dp">
+
+    <Button
+        android:id="@+id/buttonServiceExampleActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="@string/button_service"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/buttonBroadcastExampleActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="@string/button_broadcast"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="362dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/buttonContentExampleActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="@string/button_content"
+        android:textAllCaps="false"
+        tools:layout_editor_absoluteX="198dp"
+        tools:layout_editor_absoluteY="456dp" />
+</LinearLayout>

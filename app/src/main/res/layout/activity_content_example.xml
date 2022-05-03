@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".content.ContentExampleActivity">
+
+    <include android:id="@+id/custom_toolbar_content_example"
+        layout="@layout/toolbar_custom"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="10"
+        android:layout_margin="@dimen/main_padding">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="@dimen/main_text_size"
+            android:textStyle="italic"
+            android:text="@string/message_story_hh"/>
+
+        <Button
+            android:id="@+id/buttonHhRu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textAllCaps="false"
+            android:text="@string/hh_ru"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_padding"/>
+
+        <Button
+            android:id="@+id/buttonSuperhhRu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:textAllCaps="false"
+            android:text="@string/superhh_ru"/>
+
+    </LinearLayout>
+
+</LinearLayout>
