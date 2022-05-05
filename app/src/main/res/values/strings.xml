@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Week2</string>
+    <string name="activity2">Activity2</string>
+    <string name="button_open_next_activity">Открыть следующий экран</string>
+</resources>
