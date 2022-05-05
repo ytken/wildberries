@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Week2_1</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_to_previous_screen">back to previous screen</string>
+    <string name="go_to_next_fragment">Go to next fragment</string>
+    <string name="open_alertdialog">open alertdialog</string>
+</resources>
