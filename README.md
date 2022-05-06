@@ -15,12 +15,12 @@ onCreateView(LayoutInflater, ViewGroup, Bundle) | Один раз, когда ф
 onViewCreated() | Сразу после onCreateView() | Можно обратиться к компонентам UI
 onActivityCreated(Bundle) | Когда отработает метод активности onCreate() | **Deprecated** фрагмент может обратиться к компонентам активности
 onStart() | После onCreateView()| Фрагмент видим для пользователя
-onResume() | После onResume() активности | 
-onPause() | После onPause() активности | 
-onStop() | После onStop() активности | 
+onResume() | Вместе с onResume() активности | 
+onPause() | Вместе с onPause() активности | 
+onStop() | Вместе с onStop() активности | 
 onDestroyView() | Когда набор компонентов удаляется из фрагмента | 
-onDestroy() | После onDestroy() активности | 
-onDetach() | Когда фрагмент отвязывается от активности | 
+onDestroy() | Вместе с onDestroy() активности | 
+onDetach() | Вместе с фрагмент отвязывается от активности | 
 
 ## Приложение
 
