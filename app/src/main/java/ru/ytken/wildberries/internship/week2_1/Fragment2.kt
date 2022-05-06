@@ -16,7 +16,7 @@ class Fragment2 : Fragment(R.layout.fragment_2) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Log.d(LOGTAG, "onViewCreated")
         buttonPreviousFragment.setOnClickListener {
             parentFragmentManager.popBackStack()
         }

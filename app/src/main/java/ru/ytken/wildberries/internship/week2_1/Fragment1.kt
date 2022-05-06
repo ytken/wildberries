@@ -14,6 +14,7 @@ class Fragment1 : Fragment(R.layout.fragment_1) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(LOGTAG, "onViewCreated")
         buttonNextFragment.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, Fragment2())
