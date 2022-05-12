@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSort"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:elevation="10dp"
+        android:background="@color/transparentBackground">
+
+        <ProgressBar
+            android:id="@+id/progressBarSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_padding"
+        android:layout_margin="@dimen/main_padding"
+        android:background="@drawable/main_number_shape"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Количество элементов массива" />
+
+            <EditText
+                android:id="@+id/editTextNumberElements"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:maxLength="6"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Предел модуля элемента массива" />
+
+            <EditText
+                android:id="@+id/editTextMaxElement"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:maxLength="3"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonGenerateArray"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:text="Сгенерировать массив"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="@dimen/main_padding"
+        android:layout_marginBottom="@dimen/main_padding"
+        app:layout_constraintTop_toBottomOf="@id/buttonGenerateArray"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/textViewRandomArray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/text_default_random_array" />
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/main_padding"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonDefaultSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Встроенная сортировка" />
+
+        <Button
+            android:id="@+id/buttonBubbleSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сортировка пузырьком"/>
+
+        <Button
+            android:id="@+id/buttonCombSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сортировка расчёской"/>
+
+        <Button
+            android:id="@+id/buttonSelectSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сортировка выбором"/>
+
+        <Button
+            android:id="@+id/buttonInsertSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сортировка вставками"/>
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewSorted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="@dimen/main_padding"
+        android:layout_marginBottom="@dimen/main_padding"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutResult"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/textViewSortArray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/text_default_sorted_array" />
+
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/small_padding"
+        android:layout_margin="@dimen/main_padding"
+        android:background="@drawable/main_number_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Результат"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_default_time"
+            android:textSize="25sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
