@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:padding="@dimen/calculator_margin_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:weightSum="20"
+        android:padding="@dimen/main_padding"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="horizontal"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="789"
+                android:textColor="@color/black"
+                style="@style/textCalcButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textColor="@color/green_calc_button"
+                style="@style/textCalcButton"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="56"
+                android:textColor="@color/black"
+                style="@style/textCalcButton"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="845"
+                android:textSize="25sp"
+                android:textColor="@color/gray_pressed"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:weightSum="5"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:orientation="horizontal"
+                android:gravity="left|center_vertical">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_recent_history"
+                    android:layout_margin="@dimen/calculator_margin_horizontal"/>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_manage"
+                    android:layout_margin="@dimen/calculator_margin_horizontal"/>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_gallery"
+                    android:layout_margin="@dimen/calculator_margin_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="right|center_vertical"
+                android:layout_margin="@dimen/calculator_margin_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_released"
+        android:layout_marginBottom="@dimen/main_padding"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCalc1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:showDividers="middle"
+            android:weightSum="4"
+            android:divider="@drawable/calc_selector_divider"
+            android:clipToPadding="false">
+
+            <android.widget.Button
+                android:id="@+id/buttonC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/orange_calc_button"
+                android:text="C"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="( )"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="%"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="÷"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calculator_margin_vertical"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCalc2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:showDividers="middle"
+            android:weightSum="4"
+            android:divider="@drawable/calc_selector_divider"
+            android:clipToPadding="false">
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="7"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="8"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="9"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="×"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calculator_margin_vertical"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCalc3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:showDividers="middle"
+            android:weightSum="4"
+            android:divider="@drawable/calc_selector_divider"
+            android:clipToPadding="false">
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="4"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="5"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="6"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="—"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calculator_margin_vertical"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCalc4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:showDividers="middle"
+            android:weightSum="4"
+            android:divider="@drawable/calc_selector_divider"
+            android:clipToPadding="false">
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="1"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="2"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="3"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="+"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calculator_margin_vertical" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutCalc5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_size"
+            android:showDividers="middle"
+            android:weightSum="4"
+            android:divider="@drawable/calc_selector_divider">
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="+/-"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text="0"
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/green_calc_button"
+                android:text=","
+                style="@style/textCalcButton"
+                android:background="@drawable/shape_calculator_button"/>
+            <android.widget.Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="@color/gray_released"
+                android:text="="
+                style="@style/textCalcButton"
+                android:background="@drawable/selector_calculator_equal_button"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

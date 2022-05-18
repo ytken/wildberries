@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="@dimen/facebook_margin">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="185dp"
+        android:layout_height="185dp"
+        app:srcCompat="@drawable/ic_facebook_icon_icons_com_59205" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:theme="@style/facebookEditText"
+        android:padding="12dp"
+        android:hint="Телефон или электронный адрес"
+        android:layout_marginTop="@dimen/facebook_element_divider"
+        android:inputType="phone|textEmailAddress" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/facebook_element_divider"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:theme="@style/facebookEditText" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Войти"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/facebook_blue"
+        android:layout_marginTop="@dimen/facebook_element_divider" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Забыли\nпароль?"
+        android:textStyle="bold"
+        android:textColor="@color/facebook_blue"
+        android:layout_marginTop="@dimen/facebook_element_divider" />
+
+</LinearLayout>
