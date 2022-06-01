@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            for (i in 1..50) {
+            for (i in 1..731) {
                 val responseImage = ApiStorage.api.getImage(i.toString())
                 if (responseImage.isSuccessful) {
                     val jsonImage = responseImage.body()
