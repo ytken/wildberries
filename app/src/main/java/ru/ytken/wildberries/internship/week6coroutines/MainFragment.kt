@@ -17,9 +17,8 @@ import kotlin.random.Random
 class MainFragment: Fragment(R.layout.fragment_main) {
     private lateinit var binding: FragmentMainBinding
 
-    private var piJobLeibniz: Job? = null
-    private var piJobChud: Job? = null
-    private var timeJob: Job? = null
+    private val parentScope = CoroutineScope(lifecycleScope.coroutineContext)
+    private var isRunning = false
 
     var piValue: BigDecimal = BigDecimal.ZERO
     var curLeibnizNumber = 1
@@ -47,47 +46,44 @@ class MainFragment: Fragment(R.layout.fragment_main) {
             .commit()
 
         binding.buttonPlay.setOnClickListener {
-            if ((piJobLeibniz == null && piJobChud == null) || (piJobLeibniz!!.isCancelled && piJobChud!!.isCancelled)) {
+            if (!isRunning) {
                 lifecycleScope.launch {
-                    piJobLeibniz = countPiLeibniz {
-                        fragment.updateLeibnizTextView(it)
-                    }
-                    piJobLeibniz
+                    parentScope.launch {
+                        val piJobLeibniz = countPiLeibniz {
+                            fragment.updateLeibnizTextView(it)
+                        }
+                        val piJobChud = countPiChud {
+                            fragment.updateChudTextView(it)
+                        }
+                        val timeJob = countTime {
+                            val numberMins = (it/60).toString().padStart(2, '0')
+                            val numberSecs = (it%60).toString().padStart(2, '0')
+                            val textTime = "Время выполнения: $numberMins:$numberSecs"
+                            binding.textViewTime.text = textTime
 
-                    piJobChud = countPiChud {
-                        fragment.updateChudTextView(it)
+                            if (it > 0 && it % 20 == 0)
+                                binding.root.setBackgroundColor(
+                                    Color.argb(120,
+                                        Random.nextInt(0,256),
+                                        Random.nextInt(0,256),
+                                        Random.nextInt(0,256)
+                                    ))
+                        }
                     }
-                    piJobChud
-
-                    timeJob = countTime {
-                        val numberMins = (it/60).toString().padStart(2, '0')
-                        val numberSecs = (it%60).toString().padStart(2, '0')
-                        val textTime = "Время выполнения: $numberMins:$numberSecs"
-                        binding.textViewTime.text = textTime
-
-                        if (it % 20 == 0)
-                            binding.root.setBackgroundColor(
-                                Color.argb(120,
-                                Random.nextInt(0,256),
-                                Random.nextInt(0,256),
-                                Random.nextInt(0,256)
-                            ))
-                    }
-                    timeJob
                 }
+                isRunning = true
             }
         }
 
         binding.buttonPause.setOnClickListener {
-            piJobLeibniz?.cancel()
-            piJobChud?.cancel()
-            timeJob?.cancel()
+            parentScope.coroutineContext.cancelChildren()
+            isRunning = false
         }
 
         binding.buttonReset.setOnClickListener {
-            piJobLeibniz?.cancel()
-            piJobChud?.cancel()
-            timeJob?.cancelTimeJob()
+            parentScope.coroutineContext.cancelChildren()
+            binding.textViewTime.text = "Отмена"
+            isRunning = false
             initVars()
         }
     }
@@ -104,7 +100,7 @@ class MainFragment: Fragment(R.layout.fragment_main) {
 
     private suspend fun countPiLeibniz(updateResult: (String) -> Unit): Job = lifecycleScope.launch {
         while (isActive) {
-            delay(10)
+            delay(15)
             val curLeibnizNumberBig = BigDecimal.valueOf(curLeibnizNumber.toDouble())
             val curMultiplier = BigDecimal.valueOf(if ((curLeibnizNumber-1)%4 == 0) 1 else -1)
             curLeibnizNumber += 2
@@ -157,10 +153,4 @@ class MainFragment: Fragment(R.layout.fragment_main) {
             updateTime(currentSeconds)
         }
     }
-
-    private fun Job.cancelTimeJob() {
-        this.cancel()
-        binding.textViewTime.text = "Отмена"
-    }
-
 }
