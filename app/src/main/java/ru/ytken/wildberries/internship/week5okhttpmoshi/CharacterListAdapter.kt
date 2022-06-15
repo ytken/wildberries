@@ -33,7 +33,7 @@ class CharacterListAdapter(
         fun bind(character: CharacterModel) {
             binding.textViewNameChar.text = character.localizedName
             binding.textViewAttackType.text = character.attackType
-            val imageUrl = MainActivity.url + character.iconUrl
+            val imageUrl = MainViewModel.url + character.iconUrl
             binding.imageViewNameChar.load(imageUrl)
         }
     }

@@ -25,7 +25,7 @@ class CharacterActivity: AppCompatActivity() {
 
         val character = intent.getSerializableExtra(tagCharacter) as CharacterModel
         if (character != null) {
-            binding.imageViewCharacterImage.load(MainActivity.url + character.imgUrl)
+            binding.imageViewCharacterImage.load(MainViewModel.url + character.imgUrl)
             binding.textViewCharacterName.text = character.localizedName
             if (character.roles?.isNotEmpty() == true)
                 for (role in character.roles) {
