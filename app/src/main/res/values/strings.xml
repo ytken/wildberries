@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Week5RetrofitGson</string>
+    <string name="superhero_file_key">superheroInfoFile</string>
 </resources>

@@ -6,17 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import ru.ytken.wildberries.internship.week5retrofitgson.databinding.RowSuperheroBinding
+import ru.ytken.wildberries.internship.week5retrofitgson.models.SuperheroEntity
 
 class SuperheroAdapter(
-    private val listSuperheroes: List<SuperheroImageEntity>,
-    private val clickAction: (superhero: SuperheroImageEntity) -> Unit
+    private val listSuperheroes: List<SuperheroEntity>,
+    private val clickAction: (superhero: SuperheroEntity) -> Unit
 ): RecyclerView.Adapter<SuperheroAdapter.SuperheroViewHolder>() {
 
-    class SuperheroViewHolder(val context: Context, val binding: RowSuperheroBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(superhero: SuperheroImageEntity) {
+    class SuperheroViewHolder(private val context: Context, val binding: RowSuperheroBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bind(superhero: SuperheroEntity) {
             binding.textViewNameHero.text = superhero.name
             Picasso.with(context)
-                .load(superhero.url)
+                .load(superhero.images.md)
                 .transform(CircularTransformation())
                 .into(binding.imageViewImageHero)
         }
