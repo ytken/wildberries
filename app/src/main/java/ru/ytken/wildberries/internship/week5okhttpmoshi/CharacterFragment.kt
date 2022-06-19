@@ -31,7 +31,6 @@ class CharacterFragment: Fragment(R.layout.fragment_character) {
         super.onViewCreated(view, savedInstanceState)
 
         val character = arguments?.getSerializable(tagCharacter)
-        Log.d("shareModel", "$tagCharacter $character")
         if (character != null) {
             val mcharacter = character as CharacterModel
             binding.imageViewCharacterImage.load(MainViewModel.url + mcharacter.imgUrl)

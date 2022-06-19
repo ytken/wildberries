@@ -44,9 +44,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     val childFragment = CharacterFragment()
                     childFragment.arguments = Bundle().apply {
                         putSerializable(CharacterFragment.tagCharacter, it)
-                        Log.d("shareModel", "${CharacterFragment.tagCharacter} $it")
                     }
-                    Log.d("shareModel", (childFragment.arguments != null).toString())
                     parentFragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainerView, childFragment)
                         .addToBackStack(null)
