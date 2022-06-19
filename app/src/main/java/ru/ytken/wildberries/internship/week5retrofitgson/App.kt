@@ -1,6 +1,7 @@
 package ru.ytken.wildberries.internship.week5retrofitgson
 
 import android.app.Application
+import androidx.lifecycle.ViewModelProvider
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
