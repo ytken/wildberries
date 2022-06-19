@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/activity_character.xml" value="0.1400900900900901" />
-        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/bottom_sheet_character.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/fragment_about.xml" value="0.3022522522522523" />
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5OkhttpMoshi/app/src/main/res/layout/row_character.xml" value="0.22" />
       </map>
     </option>
