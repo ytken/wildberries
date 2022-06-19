@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import ru.ytken.wildberries.internship.week5retrofitgson.models.SuperheroEntity
 import ru.ytken.wildberries.internship.week5retrofitgson.models.parseSuperhero
 
-class MainViewModel(val app: Application): AndroidViewModel(app) {
+class MainViewModel(val app: App): AndroidViewModel(app) {
     val sharedPref = app.getSharedPreferences(app.resources.getString(R.string.superhero_file_key), Context.MODE_PRIVATE)
     val listOfSuperheroes = MutableLiveData<List<SuperheroEntity>>()
 
@@ -24,7 +24,7 @@ class MainViewModel(val app: Application): AndroidViewModel(app) {
 
     private fun getSuperheroesFromBackend() {
         viewModelScope.launch {
-            val responseSuperheroes = ApiStorage.api.getAllCharacters()
+            val responseSuperheroes = app.api().api.getAllCharacters()
             if (responseSuperheroes.isSuccessful) {
                 val responseList = responseSuperheroes.body()
                 listOfSuperheroes.postValue(responseList)
@@ -32,7 +32,6 @@ class MainViewModel(val app: Application): AndroidViewModel(app) {
                     for (hero in responseList)
                         putSuperheroToSharedPrefs(hero)
             }
-
         }
     }
 
