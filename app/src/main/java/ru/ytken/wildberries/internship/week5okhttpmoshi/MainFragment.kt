@@ -26,8 +26,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         vm.setFilePath("${activity?.filesDir}charactersInfo.txt")
+
+        binding.imageViewInfoAbout.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainerView, AboutFragment())
+                .addToBackStack(null)
+                .commit()
+        }
 
         binding.progressBarLoadCharacters.visibility = View.VISIBLE
         vm.listOfCharacters.observe(requireActivity()) {

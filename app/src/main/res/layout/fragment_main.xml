@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment">
+    tools:context=".MainFragment"
+    android:padding="@dimen/main_padding">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewListCharacters"
@@ -24,6 +25,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/recyclerViewListCharacters"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewInfoAbout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#00000000"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

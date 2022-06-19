@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -35,13 +36,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="Github:"/>
+                android:text="Дата создания: "/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="Дата создания: "/>
+                android:text="Github:"/>
 
         </LinearLayout>
 
@@ -61,22 +62,33 @@
                 android:gravity="left"
                 android:text="Овчинникова Анастасия"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="19.06.2022"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="left">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:id="@+id/textViewLink"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:text="ytken/wildberries/tree/week_8_1"/>
+
+                <ImageView
+                    android:id="@+id/imageViewCopyLink"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/black"
+                    app:srcCompat="?attr/actionModeCopyDrawable" />
 
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:text="19.06.2022"/>
 
         </LinearLayout>
 
