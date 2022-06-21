@@ -28,7 +28,7 @@ class AboutFragment: Fragment() {
 
         binding.imageViewCopyLink.setOnClickListener {
             val clipboardManager = requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clipData = ClipData.newPlainText("label", "https://github.com/ytken/wildberries/tree/week_8_1")
+            val clipData = ClipData.newPlainText("label", "https://github.com/ytken/wildberries/tree/week_8_2")
             clipboardManager.setPrimaryClip(clipData)
             Toast.makeText(context, "Ссылка скопирована", Toast.LENGTH_SHORT).show()
         }
