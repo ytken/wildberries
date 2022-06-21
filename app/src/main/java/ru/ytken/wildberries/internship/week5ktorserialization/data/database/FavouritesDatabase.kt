@@ -7,22 +7,5 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Favourite::class], version = 1)
 abstract class FavouritesDatabase: RoomDatabase() {
-
     abstract fun favouritesDao(): FavouritesDao
-
-    companion object {
-        private var favouritesDatabase: FavouritesDatabase? = null
-
-        fun getDatabase(context: Context): FavouritesDatabase {
-            if (favouritesDatabase == null) {
-                favouritesDatabase = Room.databaseBuilder(
-                    context.applicationContext,
-                    FavouritesDatabase::class.java,
-                    "favourites_database"
-                ).build()
-            }
-            return favouritesDatabase!!
-        }
-    }
-
 }

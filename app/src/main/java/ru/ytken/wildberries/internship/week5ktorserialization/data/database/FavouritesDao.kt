@@ -14,5 +14,5 @@ interface FavouritesDao {
     suspend fun addFavourite(favourite: Favourite)
 
     @Query("SELECT * FROM favourites_data")
-    fun readAllFavourites(): LiveData<List<Favourite>>
+    suspend fun readAllFavourites(): List<Favourite>
 }

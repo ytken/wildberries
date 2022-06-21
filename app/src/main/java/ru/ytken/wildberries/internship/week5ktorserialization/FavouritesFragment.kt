@@ -1,54 +1,46 @@
 package ru.ytken.wildberries.internship.week5ktorserialization
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.ytken.wildberries.internship.week5ktorserialization.databinding.ActivityFavouritesBinding
 import ru.ytken.wildberries.internship.week5ktorserialization.databinding.ElementFavouritesBinding
-import ru.ytken.wildberries.internship.week5ktorserialization.entities.CatEntity
+import ru.ytken.wildberries.internship.week5ktorserialization.databinding.FragmentFavouritesBinding
 import ru.ytken.wildberries.internship.week5ktorserialization.entities.GetFavouritesEntity
 
-class FavouritesActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityFavouritesBinding
+class FavouritesFragment: Fragment() {
+    private lateinit var binding: FragmentFavouritesBinding
     private val vm: MainViewModel by lazy {
         ViewModelProvider(this)[MainViewModel::class.java]
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityFavouritesBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentFavouritesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         vm.getListOfFavourites()
 
-        vm.listOfFavouritesRoom.observe(this) {
-            Log.d("Favourites", it.isEmpty().toString())
-            if (it.isEmpty())
-                vm.getListOfFavouritesFromBackend()
-            else
-                initRecyclerView(it.map {
-                    GetFavouritesEntity(
-                        0,
-                        CatEntity(it.id, it.image)
-                    )
-                })
-        }
-
-        vm.listOfFavouritesBackend.observe(this) {
+        vm.listOfFavouriteCats.observe(viewLifecycleOwner) {
             initRecyclerView(it)
         }
-
     }
 
     fun initRecyclerView(listGetFavouritesEntity: List<GetFavouritesEntity>) {
         binding.recyclerViewFavourites.apply {
-            layoutManager = GridLayoutManager(this@FavouritesActivity, 3)
-            adapter = FavouritesActivity.FavouritesAdapter(listGetFavouritesEntity)
+            layoutManager = GridLayoutManager(context, 3)
+            adapter = FavouritesFragment.FavouritesAdapter(listGetFavouritesEntity)
         }
     }
 
