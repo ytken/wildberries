@@ -2,6 +2,9 @@ package ru.ytken.wildberries.internship.week5retrofitgson
 
 import android.app.Application
 import androidx.lifecycle.ViewModelProvider
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,7 +19,7 @@ object ApiModule: ApiComponent {
     const val baseUrl = "https://akabab.github.io/superhero-api/api/"
 
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-    override val okHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
+    val okHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
     private val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
@@ -24,4 +27,8 @@ object ApiModule: ApiComponent {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     override val api = retrofit.create(ApiStorage::class.java)
+
+    val cicerone = Cicerone.create()
+    override val router = cicerone.router
+    override val navigatorHolder = cicerone.getNavigatorHolder()
 }

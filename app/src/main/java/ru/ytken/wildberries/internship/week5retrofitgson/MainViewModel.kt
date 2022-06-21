@@ -7,12 +7,17 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import ru.ytken.wildberries.internship.week5retrofitgson.cicerone.SuperheroPresenter
 import ru.ytken.wildberries.internship.week5retrofitgson.models.SuperheroEntity
 import ru.ytken.wildberries.internship.week5retrofitgson.models.parseSuperhero
 
 class MainViewModel(val app: Application): AndroidViewModel(app) {
     val sharedPref = app.getSharedPreferences(app.resources.getString(R.string.superhero_file_key), Context.MODE_PRIVATE)
     val listOfSuperheroes = MutableLiveData<List<SuperheroEntity>>()
+
+    val router = (app as App).api().router
+    val navigatorHolder = (app as App).api().navigatorHolder
+    val presenter = SuperheroPresenter(router)
 
     init {
         Log.d("MainViewModel", sharedPref.all.isEmpty().toString())

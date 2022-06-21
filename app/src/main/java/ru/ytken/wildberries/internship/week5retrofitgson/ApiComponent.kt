@@ -1,8 +1,13 @@
 package ru.ytken.wildberries.internship.week5retrofitgson
 
-import okhttp3.OkHttpClient
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 
 interface ApiComponent {
-    val okHttpClient: OkHttpClient
+    // Retrofit
     val api: ApiStorage
+
+    // Cicerone
+    val router: Router
+    val navigatorHolder: NavigatorHolder
 }

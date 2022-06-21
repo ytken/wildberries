@@ -5,7 +5,10 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/layout/activity_main.xml" value="0.14791666666666667" />
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/layout/activity_superhero.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/layout/fragment_about.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/layout/fragment_main.xml" value="0.2864471996579735" />
         <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/layout/row_superhero.xml" value="0.16197916666666667" />
+        <entry key="..\:/AndroidStudioProjects/Androidlessons/Week5RetrofitGson/app/src/main/res/menu/bottom_menu.xml" value="0.2864471996579735" />
       </map>
     </option>
   </component>
