@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import ru.ytken.wildberries.internship.week5okhttpmoshi.databinding.FragmentAboutBinding
 
-
 class AboutFragment: Fragment() {
     private lateinit var binding: FragmentAboutBinding
 
