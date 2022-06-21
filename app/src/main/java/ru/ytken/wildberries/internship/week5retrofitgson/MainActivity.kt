@@ -1,6 +1,7 @@
 package ru.ytken.wildberries.internship.week5retrofitgson
 
 import android.os.Bundle
+import android.transition.ChangeBounds
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -38,8 +39,11 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null)
+        if (savedInstanceState == null) {
+            Log.d("troubleshoot", "set init screen")
             navigator.applyCommands(arrayOf<Command>(Replace(Screens.MainScreen())))
+
+        }
 
     }
 
