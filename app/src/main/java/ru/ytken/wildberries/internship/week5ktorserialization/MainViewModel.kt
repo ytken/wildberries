@@ -1,6 +1,9 @@
 package ru.ytken.wildberries.internship.week5ktorserialization
 
 import android.app.Application
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -14,11 +17,18 @@ class MainViewModel(app: Application): AndroidViewModel(app) {
     val nextCatToShow = MutableLiveData<CatEntity>()
     val listOfFavouriteCats = MutableLiveData<List<GetFavouritesEntity>>()
 
+    val connectivityManager = ContextCompat.getSystemService(app, ConnectivityManager::class.java) as ConnectivityManager
+
     init {
-        viewModelScope.launch {
-            currentCat.postValue(getRandomCat())
-            nextCatToShow.postValue(getRandomCat())
-        }
+        val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        if (capabilities != null)
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
+                    capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
+                viewModelScope.launch {
+                    currentCat.postValue(getRandomCat())
+                    nextCatToShow.postValue(getRandomCat())
+                }
+
     }
 
     private suspend fun getRandomCat(): CatEntity {

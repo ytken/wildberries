@@ -1,10 +1,16 @@
 package ru.ytken.wildberries.internship.week5ktorserialization
 
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
+import android.net.NetworkRequest
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -24,10 +30,17 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    val networkRequest = NetworkRequest.Builder()
+        .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+        .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+        .build()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         vm.currentCat.observe(viewLifecycleOwner) {
+            val connectivityManager = context?.let { it1 -> getSystemService(it1, ConnectivityManager::class.java) } as ConnectivityManager
             binding.draweeViewCat.setImageURI(it.url)
         }
 
