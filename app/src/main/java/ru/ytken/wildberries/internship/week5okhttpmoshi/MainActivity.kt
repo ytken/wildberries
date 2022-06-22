@@ -6,6 +6,7 @@ import ru.ytken.wildberries.internship.week5okhttpmoshi.databinding.ActivityMain
 
 class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val tagMainFragment = "TAG_MAIN_FRAGMENT"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +15,7 @@ class MainActivity: AppCompatActivity() {
 
         if (savedInstanceState == null)
             supportFragmentManager.beginTransaction()
-                .add(R.id.fragmentContainerView, MainFragment())
+                .add(R.id.fragmentContainerView, MainFragment(), tagMainFragment)
                 .commit()
     }
 }

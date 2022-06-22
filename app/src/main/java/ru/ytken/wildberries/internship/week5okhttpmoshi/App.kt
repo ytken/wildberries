@@ -1,0 +1,24 @@
+package ru.ytken.wildberries.internship.week5okhttpmoshi
+
+import android.app.Application
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import java.io.File
+
+class App: Application() {
+    fun api(): ApiComponent = ApiModule(filesDir.absolutePath)
+
+    class ApiModule(filePath: String): ApiComponent {
+        val moshi: Moshi = Moshi.Builder().build()
+        val type = Types.newParameterizedType(List::class.java, CharacterModel::class.java)
+        val moshiAdapter: JsonAdapter<List<CharacterModel>> = moshi.adapter(type)
+
+        val logging = HttpLoggingInterceptor()
+        val okHttpClient = OkHttpClient.Builder().addInterceptor(logging).build()
+
+        override val repository = Repository(moshiAdapter, okHttpClient)
+    }
+}

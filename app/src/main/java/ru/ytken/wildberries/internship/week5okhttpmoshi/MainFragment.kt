@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import ru.ytken.wildberries.internship.week5okhttpmoshi.databinding.FragmentMainBinding
 
 class MainFragment : Fragment(R.layout.fragment_main) {
@@ -26,7 +27,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vm.setFilePath("${activity?.filesDir}charactersInfo.txt")
+
+        vm.getInitInfo(activity?.filesDir.toString())
 
         binding.imageViewInfoAbout.setOnClickListener {
             parentFragmentManager.beginTransaction()
@@ -49,8 +51,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                         .replace(R.id.fragmentContainerView, childFragment)
                         .addToBackStack(null)
                         .commit()
+                }.apply {
+                    stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.ALLOW
                 }
             }
         }
     }
+
 }

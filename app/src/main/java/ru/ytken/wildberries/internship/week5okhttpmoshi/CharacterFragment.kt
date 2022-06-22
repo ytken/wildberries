@@ -33,7 +33,7 @@ class CharacterFragment: Fragment(R.layout.fragment_character) {
         val character = arguments?.getSerializable(tagCharacter)
         if (character != null) {
             val mcharacter = character as CharacterModel
-            binding.imageViewCharacterImage.load(MainViewModel.url + mcharacter.imgUrl)
+            binding.imageViewCharacterImage.load(Repository.url + mcharacter.imgUrl)
             binding.textViewCharacterName.text = mcharacter.localizedName
             if (mcharacter.roles?.isNotEmpty() == true)
                 for (role in mcharacter.roles) {

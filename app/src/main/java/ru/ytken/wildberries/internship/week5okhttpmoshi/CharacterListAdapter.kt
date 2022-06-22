@@ -28,12 +28,11 @@ class CharacterListAdapter(
 
     override fun getItemCount(): Int = characters.size
 
-    class CharacterViewHolder(binding: RowCharacterBinding): RecyclerView.ViewHolder(binding.root) {
-        val binding = binding
+    class CharacterViewHolder(val binding: RowCharacterBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(character: CharacterModel) {
             binding.textViewNameChar.text = character.localizedName
             binding.textViewAttackType.text = character.attackType
-            val imageUrl = MainViewModel.url + character.iconUrl
+            val imageUrl = Repository.url + character.iconUrl
             binding.imageViewNameChar.load(imageUrl)
         }
     }
