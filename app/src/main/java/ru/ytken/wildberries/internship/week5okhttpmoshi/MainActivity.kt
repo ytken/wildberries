@@ -1,5 +1,6 @@
 package ru.ytken.wildberries.internship.week5okhttpmoshi
 
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.ytken.wildberries.internship.week5okhttpmoshi.databinding.ActivityMainBinding

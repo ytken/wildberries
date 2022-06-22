@@ -1,11 +1,13 @@
 package ru.ytken.wildberries.internship.week5okhttpmoshi
 
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -27,8 +29,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        vm.getInitInfo(activity?.filesDir.toString())
+        val connectivityManager = context?.let { ContextCompat.getSystemService(it, ConnectivityManager::class.java) }
+        vm.getInitInfo(activity?.filesDir.toString(), connectivityManager!!)
 
         binding.imageViewInfoAbout.setOnClickListener {
             parentFragmentManager.beginTransaction()

@@ -1,7 +1,7 @@
 package ru.ytken.wildberries.internship.week5okhttpmoshi
 
-import com.squareup.moshi.JsonAdapter
-import okhttp3.OkHttpClient
+import android.net.ConnectivityManager
+import android.net.NetworkRequest
 
 interface ApiComponent {
     val repository: Repository

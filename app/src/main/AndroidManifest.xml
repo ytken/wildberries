@@ -3,6 +3,7 @@
     package="ru.ytken.wildberries.internship.week5okhttpmoshi">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
 
     <application
         android:name=".App"
