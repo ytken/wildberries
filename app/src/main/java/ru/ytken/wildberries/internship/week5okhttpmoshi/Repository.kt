@@ -4,6 +4,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.squareup.moshi.JsonAdapter
 import okhttp3.*
@@ -41,7 +42,8 @@ class Repository(
                             if (json != null) {
                                 val listFromJson = moshiAdapter.fromJson(json)
                                 listOfCharacters.postValue(listFromJson)
-                                //if (listFromJson != null) writeDataToFile(filePath, listFromJson)
+                                if (listFromJson != null)
+                                    writeDataToFile(filePath, listFromJson)
                             }
                         }
                     })
@@ -49,7 +51,7 @@ class Repository(
             }
 
             connectivityManager.requestNetwork(networkRequest, networkCallback)
-        }
+        } else listOfCharacters.postValue(fileInfo)
     }
 
     private val networkRequest = NetworkRequest.Builder()

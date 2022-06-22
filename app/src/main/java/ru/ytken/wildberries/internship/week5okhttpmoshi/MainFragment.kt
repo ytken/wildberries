@@ -1,6 +1,7 @@
 package ru.ytken.wildberries.internship.week5okhttpmoshi
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
@@ -43,7 +44,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         vm.listOfCharacters.observe(requireActivity()) {
             binding.progressBarLoadCharacters.visibility = View.INVISIBLE
             binding.recyclerViewListCharacters.apply {
-                layoutManager = GridLayoutManager(context, 2)
+                layoutManager = if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
+                    GridLayoutManager(context, 2)
+                else
+                    GridLayoutManager(context, 3)
                 adapter = CharacterListAdapter(it) {
                     val childFragment = CharacterFragment()
                     childFragment.arguments = Bundle().apply {
