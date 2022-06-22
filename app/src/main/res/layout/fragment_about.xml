@@ -81,12 +81,12 @@
                     android:text="ytken/wildberries/tree/week_8_1"/>
 
                 <ImageView
-                    android:id="@+id/imageViewCopyLink"
+                    android:id="@+id/imageViewOpenInBrowser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@color/black"
-                    app:srcCompat="?attr/actionModeCopyDrawable" />
+                    app:srcCompat="@android:drawable/ic_menu_search" />
 
             </LinearLayout>
 
